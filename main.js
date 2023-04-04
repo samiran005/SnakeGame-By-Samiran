@@ -105,19 +105,19 @@ window.addEventListener('touchmove',(e)=>{
     moveY = e.touches[0].clientY;
 })
 window.addEventListener('touchend',(e)=>{
-    if(startX + 100 < moveX && velocityX != -1){
+    if(startX + 30 < moveX && velocityX != -1){
         //moving right
         velocityX = 1;
         velocityY = 0;
-    }else if(startX - 100 > moveX && velocityX != 1){
+    }else if(startX - 30 > moveX && velocityX != 1){
         //moving left
         velocityX = -1;
         velocityY = 0;
-    }else if(startY + 100 < moveY && velocityY != -1){
+    }else if(startY + 30 < moveY && velocityY != -1){
         //moving down
         velocityX = 0;
         velocityY = 1;
-    }else if(startY - 100 > moveY && velocityY != 1){
+    }else if(startY - 30 > moveY && velocityY != 1){
         //moving top
         velocityX = 0;
         velocityY = -1;
