@@ -91,3 +91,35 @@ const initGame = () => {
 updateFoodPosition();
 setIntervalId = setInterval(initGame, 100);
 document.addEventListener("keyup", changeDirection);
+
+//------------------------------------------------------------
+// touch for mobile (left right top buttom)
+let startX, startY, moveX, moveY;
+
+window.addEventListener('touchstart',(e)=>{
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+})
+window.addEventListener('touchmove',(e)=>{
+    moveX = e.touches[0].clientX;
+    moveY = e.touches[0].clientY;
+})
+window.addEventListener('touchend',(e)=>{
+    if(startX + 100 < moveX && velocityX != -1){
+        //moving right
+        velocityX = 1;
+        velocityY = 0;
+    }else if(startX - 100 > moveX && velocityX != 1){
+        //moving left
+        velocityX = -1;
+        velocityY = 0;
+    }else if(startY + 100 < moveY && velocityY != -1){
+        //moving down
+        velocityX = 0;
+        velocityY = 1;
+    }else if(startY - 100 > moveY && velocityY != 1){
+        //moving top
+        velocityX = 0;
+        velocityY = -1;
+    }
+})
